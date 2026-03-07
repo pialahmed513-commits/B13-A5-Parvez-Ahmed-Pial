@@ -33,6 +33,10 @@ const displayIssues = (issues) => {
     div.className = `bg-white p-4 rounded shadow border-t-4 ${border}`;
 
     div.innerHTML = `
+      <div class ="flex justify-between">
+      <p class="text-xs font-bold mt-2 text-green-600"> ${issue.status}</p>
+      <h1 class="font-semibold mb-2 bg-red-200 w-[70px] rounded-md text-center">${issue.priority}</h1>
+      </div>
       <h3 class="font-semibold mb-2">${issue.title}</h3>
 
       <p class="text-gray-500 text-sm mb-3">${issue.description}</p>
@@ -40,11 +44,9 @@ const displayIssues = (issues) => {
       <div class="flex gap-2 mb-3 flex-wrap">
         ${labelsHTML}
       </div>
-
-      <p class="text-xs text-gray-400">Author: ${issue.author}</p>
-
-      <p class="text-xs font-semibold mt-2">
-        Status: ${issue.status}
+    
+      <p class="text-xs text-gray-400">#: ${issue.author}</p>
+      <p class="text-xs font-semibold mt-2 text-[#64748B]"> ${issue.createdAt}
       </p>
     `;
 
