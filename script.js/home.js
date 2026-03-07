@@ -88,3 +88,18 @@ const searchIssue = () => {
   displayIssues(result);
 
 };
+
+document
+.getElementById("search-btn")
+.addEventListener("click", async ()=>{
+
+const text = document.getElementById("search-input").value
+
+const url = `https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${text}`
+
+const res = await fetch(url)
+const data = await res.json()
+
+displayIssues(data.data)
+
+})

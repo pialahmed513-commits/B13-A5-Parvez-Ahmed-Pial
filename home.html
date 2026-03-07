@@ -29,10 +29,10 @@
   </div>
 </div>
   <div class="flex gap-8">
-    <input type="text" placeholder="Search issues..." class="input input-bordered w-24 md:w-auto" />
+    <input type="text" id="search-input" placeholder="Search issues..." class="input w-24 md:w-auto" />
       <div class="btn btn-primary ">
      
-         <button>New Issue</button>
+         <button id="search-btn">New Issue</button>
     </div>
   </div>
 </div>
@@ -55,12 +55,13 @@
 
 
 <!-- Issue check -->
-<div class="flex justify-between items-center mt-6 border-b pb-3">
+<div class="flex justify-between items-center mt-6 border-2 border-gray-300 rounded-md pb-3 h-[90px] p-5">
 
 <div class="flex items-center gap-2">
-<i class="fa-solid fa-circle-dot text-gray-600"></i>
+<i class="fa-brands fa-web-awesome"></i>
 <p id="issue-count" class="font-semibold">0 Issues</p>
 </div>
+
 
 <div class="flex gap-5 text-sm">
 
