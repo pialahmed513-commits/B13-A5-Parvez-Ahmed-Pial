@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Github-Issue-Tracker</title>
+
+    <link rel="stylesheet" href="./style.css">   
+
+    <!-- daisyui-tailwind -->
+<link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<!-- get font -->
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+    <!-- navbar -->
+<nav>
+    <div class="navbar bg-base-100 shadow-sm">
+  <div class="flex-1">
+    <div class="flex">
+        <img src="./assets/github-logo.png" alt=""class="w-[36px] h-[36px]">
+        <a class="btn btn-ghost text-xl">GitHub Issues Tracker</a>
+  </div>
+</div>
+  <div class="flex gap-8">
+    <input type="text" placeholder="Search issues..." class="input input-bordered w-24 md:w-auto" />
+      <div class="btn btn-primary ">
+     
+         <button><i class="fa-solid fa-plus"></i>New Issue</button>
+    </div>
+  </div>
+</div>
+
+</nav>
+
+
+<div class="w-11/12 mx-auto mt-16">
+
+<!-- btn -->
+<div class="flex gap-5 bg-gray-300 h-[88px] rounded-2xl items-center px-6">
+
+<button onclick="showAll()" class="btn btn-primary">All</button>
+
+<button onclick="showOpen()" class="btn ">Open</button>
+
+<button onclick="showClosed()" class="btn ">Closed</button>
+
+</div>
+
+
+<!-- Issue check -->
+<div class="flex justify-between items-center mt-6 border-b pb-3">
+
+<div class="flex items-center gap-2">
+<i class="fa-solid fa-circle-dot text-gray-600"></i>
+<p id="issue-count" class="font-semibold">0 Issues</p>
+</div>
+
+<div class="flex gap-5 text-sm">
+
+<span class="flex items-center gap-1 text-green-600">
+<i class="fa-solid fa-circle"></i> Open
+</span>
+
+<span class="flex items-center gap-1 text-red-600">
+<i class="fa-solid fa-circle"></i> Closed
+</span>
+
+</div>
+
+</div>
+
+
+<!-- Issue cards -->
+<div id="issue-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
+
+</div>
+
+</div>
+
+    <script src="/script.js/home.js"></script>
+</body>
+</html>

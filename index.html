@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Github-Issue-Tracker</title>
+
+<link rel="stylesheet" href="./style.css">    
+<!-- daisyui-tailwind -->
+<link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<!-- get font -->
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+    <!-- login-form -->
+     <div class="min-h-screen max-w-md bg-white shadow-2xl mx-auto ">
+            <div class="logo mx-auto pt-14 ">
+                  <img class=" w-[100px] mx-auto" src="./assets/github-logo.png" alt="">
+                  <h1 class="font-bold text-xl flex justify-center mt-3">GitHub Issues Tracker</h1>
+                  <p class="flex justify-center mt-1 text-[#aeb4ba]">Sign in to manage your issues</p>
+           </div>
+           
+        <div>
+            <fieldset class="fieldset bg-white rounded-box w-xs  mt-3 mx-auto">
+            <legend class="fieldset-legend">Username</legend>
+            <input id="input-name" maxlength="5" minlength="5" type="text" class="input" placeholder="Enter Username" />
+
+            <legend class="fieldset-legend">password</legend>
+            <input id="input-pin" maxlength="8" minlength="8" type="password" class="input" placeholder="Enter Password" />
+
+            <button id="login-btn" class="btn btn-primary mt-4">Sign In</button>
+            </fieldset>
+        </div>
+
+     </div>
+
+    
+
+   
+ <script src="script.js/login.js"></script>
+</body>
+</html>
