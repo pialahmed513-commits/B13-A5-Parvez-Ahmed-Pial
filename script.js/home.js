@@ -52,6 +52,46 @@ const displayIssues = (issues) => {
   }
 };
 
+
+
+const allBtn = document.getElementById("allBtn");
+const openBtn = document.getElementById("openBtn");
+const closedBtn = document.getElementById("closedBtn");
+
+// বাটনের একটিভ স্টাইল পরিবর্তনের জন্য ফাংশন
+const setActiveButton = (activeBtn) => {
+  [allBtn, openBtn, closedBtn].forEach(btn => {
+    if (btn === activeBtn) {
+      btn.classList.add("btn-primary");
+    } else {
+      btn.classList.remove("btn-primary");
+    }
+  });
+};
+
+// Show All
+const showAll = () => {
+  displayIssues(allIssues);
+  setActiveButton(allBtn); // All btn কে active করুন
+};
+
+// Show Open
+const showOpen = () => {
+  const open = allIssues.filter(issue => issue.status === "open");
+  displayIssues(open);
+  setActiveButton(openBtn); // Open btn কে active করুন
+};
+
+// Show Closed
+const showClosed = () => {
+  const closed = allIssues.filter(issue => issue.status === "closed");
+  displayIssues(closed);
+  setActiveButton(closedBtn); // Closed btn কে active করুন
+};
+
+
+
+
 // modal add  / /
 const labelContainer = document.getElementById("modal-labels");
 
@@ -73,21 +113,7 @@ labelContainer.innerHTML = issue.labels
 
 
 
-
-const showAll = () => {
-  displayIssues(allIssues);
-};
-
-const showOpen = () => {
-  const open = allIssues.filter(issue => issue.status === "open");
-  displayIssues(open);
-};
-
-const showClosed = () => {
-  const closed = allIssues.filter(issue => issue.status === "closed");
-  displayIssues(closed);
-};
-
+// search btn 
 
 const searchIssue = () => {
 
@@ -105,6 +131,8 @@ const searchIssue = () => {
   displayIssues(result);
 
 };
+
+
 
 document.getElementById("search-btn").addEventListener("click", () => {
 
