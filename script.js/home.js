@@ -24,14 +24,12 @@ const displayIssues = (issues) => {
     ).join(" ");
 
     const border =
-      issue.status === "open"
-        ? "border-green-500"
-        : "border-purple-500";
+      issue.status === "open"? "border-green-500": "border-purple-500";
 
     const div = document.createElement("div");
 
     div.className = `bg-white p-4 rounded shadow border-t-4 ${border}`;
-
+    div.onclick = () => modal(issue);
     div.innerHTML = `
       <div class ="flex justify-between">
       <p class="text-xs font-bold mt-2 text-green-600"> ${issue.status}</p>
@@ -54,7 +52,26 @@ const displayIssues = (issues) => {
   }
 };
 
-loadIssues();
+// modal add  / /
+const labelContainer = document.getElementById("modal-labels");
+
+const modal = (issue) =>{
+  document.getElementById("modal-title").innerText = issue.title;
+  document.getElementById("modal-description").innerText = issue.description;
+  document.getElementById("modal-author").innerText = issue.author;
+  document.getElementById("modal-date").innerText = issue.createdAt;
+  document.getElementById("modal-status").innerText= issue.status;
+  document.getElementById("modal-priority").innerText= issue.priority;
+  
+
+
+labelContainer.innerHTML = issue.labels
+.map(label => `<span class="badge badge-warning">${label}</span>`).join(" ");
+
+  document.getElementById("my_modal_5").showModal();
+}
+
+
 
 
 const showAll = () => {
@@ -89,17 +106,29 @@ const searchIssue = () => {
 
 };
 
-document
-.getElementById("search-btn")
-.addEventListener("click", async ()=>{
+document.getElementById("search-btn").addEventListener("click", () => {
 
-const text = document.getElementById("search-input").value
+const text = document
+.getElementById("search-input")
+.value
+.toLowerCase();
 
-const url = `https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${text}`
+if(text === ""){
+displayIssues(allIssues);
+return;
+}
 
-const res = await fetch(url)
-const data = await res.json()
+const result = allIssues.filter(issue =>
 
-displayIssues(data.data)
+issue.title.toLowerCase().includes(text) ||
 
-})
+issue.description.toLowerCase().includes(text) ||
+
+issue.author.toLowerCase().includes(text)
+
+);
+
+displayIssues(result);
+
+});
+loadIssues();
