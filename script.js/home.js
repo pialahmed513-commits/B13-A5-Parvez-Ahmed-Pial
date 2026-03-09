@@ -9,7 +9,7 @@ const loadIssues = () => {
     });
 };
 
-const displayIssues = (issues) => {
+  const displayIssues = (issues) => {
 
   const container = document.getElementById("issue-container");
   const issueCount = document.getElementById("issue-count");
@@ -20,11 +20,9 @@ const displayIssues = (issues) => {
   for (let issue of issues) {
 
     const labelsHTML = issue.labels.map(label =>
-      `<span class="bg-red-100 text-red-600 text-xs px-2 py-1 rounded">${label}</span>`
-    ).join(" ");
+      `<span class="bg-red-100 text-red-600 text-xs px-2 py-1 rounded">${label}</span>`).join(" ");
 
-    const border =
-      issue.status === "open"? "border-green-500": "border-purple-500";
+    const border =issue.status === "open"? "border-green-500": "border-purple-500";
 
     const div = document.createElement("div");
 
@@ -58,7 +56,7 @@ const allBtn = document.getElementById("allBtn");
 const openBtn = document.getElementById("openBtn");
 const closedBtn = document.getElementById("closedBtn");
 
-// বাটনের একটিভ স্টাইল পরিবর্তনের জন্য ফাংশন
+// btn all
 const setActiveButton = (activeBtn) => {
   [allBtn, openBtn, closedBtn].forEach(btn => {
     if (btn === activeBtn) {
@@ -136,10 +134,7 @@ const searchIssue = () => {
 
 document.getElementById("search-btn").addEventListener("click", () => {
 
-const text = document
-.getElementById("search-input")
-.value
-.toLowerCase();
+const text = document.getElementById("search-input").value.toLowerCase();
 
 if(text === ""){
 displayIssues(allIssues);
@@ -148,10 +143,7 @@ return;
 
 const result = allIssues.filter(issue =>
 
-issue.title.toLowerCase().includes(text) ||
-
-issue.description.toLowerCase().includes(text) ||
-
+issue.title.toLowerCase().includes(text) ||issue.description.toLowerCase().includes(text) ||
 issue.author.toLowerCase().includes(text)
 
 );
